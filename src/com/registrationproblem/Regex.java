@@ -7,20 +7,20 @@ import java.util.regex.Pattern;
 public class Regex {
 	public static void main(String args[]) {
 		Scanner sc = new Scanner(System.in);
-		String last_name;
-		System.out.println("\nEnter the last name with first letter capital and should be minimum 3 letters:");
-		last_name = sc.nextLine();
-		checkLastName(last_name);
+		String email_id;
+		System.out.println("\nEnter the Email Address");
+		email_id = sc.nextLine();
+		email_Id(email_id);
 	}
 
-	public static void checkLastName(String lastname) {
-		String regex = "^[A-Z]{1}[a-z]{2,}$";
+	public static void email_Id(String email_address) {
+		String regex = "[a-z]+[.][a-z]*[@][a-z]+[.][a-z]+[.][a-z]*";
 		Pattern pattern = Pattern.compile(regex);
-		Matcher matcher = pattern.matcher(lastname);
+		Matcher matcher = pattern.matcher(email_address);
 		if (matcher.matches()) {
-			System.out.println("\nYour lastname " + lastname + " is in correct format.");
+			System.out.println("\nYour email_address " + email_address + " is in correct format.");
 		} else {
-			System.out.println("\nYour lastname is not in format.");
+			System.out.println("\nYour email_address is not in format");
 		}
 	}
 }
