@@ -7,20 +7,20 @@ import java.util.regex.Pattern;
 public class Regex {
 	public static void main(String args[]) {
 		Scanner sc = new Scanner(System.in);
-		String email_id;
-		System.out.println("\nEnter the Email Address");
-		email_id = sc.nextLine();
-		email_Id(email_id);
+		String mobile_no;
+		System.out.println("\nEnter the mobile number ");
+		mobile_no = sc.nextLine();
+		checkMobileNo(mobile_no);
 	}
 
-	public static void email_Id(String email_address) {
-		String regex = "[a-z]+[.][a-z]*[@][a-z]+[.][a-z]+[.][a-z]*";
+	public static void checkMobileNo(String mobile_number) {
+		String regex = "^(91)\\s[6-9][0-9]{9}$";
 		Pattern pattern = Pattern.compile(regex);
-		Matcher matcher = pattern.matcher(email_address);
+		Matcher matcher = pattern.matcher(mobile_number);
 		if (matcher.matches()) {
-			System.out.println("\nYour email_address " + email_address + " is in correct format.");
+			System.out.println("\nYour mobile_number " + mobile_number + " is in correct format.");
 		} else {
-			System.out.println("\nYour email_address is not in format");
+			System.out.println("\nYour mobile_number is not in format");
 		}
 	}
 }
