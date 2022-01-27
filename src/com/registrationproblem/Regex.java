@@ -7,20 +7,20 @@ import java.util.regex.Pattern;
 public class Regex {
 	public static void main(String args[]) {
 		Scanner sc = new Scanner(System.in);
-		String mobile_no;
-		System.out.println("\nEnter the mobile number ");
-		mobile_no = sc.nextLine();
-		checkMobileNo(mobile_no);
+		String password ;
+		System.out.println("\nEnter password ");
+		password = sc.nextLine();
+		checkPassword(password);
 	}
 
-	public static void checkMobileNo(String mobile_number) {
-		String regex = "^(91)\\s[6-9][0-9]{9}$";
+	public static void checkPassword(String password) {
+		String regex = "[0-9]{8,}";
 		Pattern pattern = Pattern.compile(regex);
-		Matcher matcher = pattern.matcher(mobile_number);
+		Matcher matcher = pattern.matcher(password);
 		if (matcher.matches()) {
-			System.out.println("\nYour mobile_number " + mobile_number + " is in correct format.");
+			System.out.println("\nYour password " + password + " is in correct format.");
 		} else {
-			System.out.println("\nYour mobile_number is not in format");
+			System.out.println("\nYour password is not in format");
 		}
 	}
 }
