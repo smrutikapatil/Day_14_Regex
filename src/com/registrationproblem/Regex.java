@@ -8,17 +8,17 @@ public class Regex {
 	public static void main(String args[]) {
 		Scanner sc = new Scanner(System.in);
 		String password ;
-		System.out.println("\nEnter password at least 1 numeric number ");
+		System.out.println("\nEnter password at least 1 special character ");
 		password = sc.nextLine();
-		checkOneNumeric(password);
+		checkSpecialCharacter(password);
 	}
 
-	public static void checkOneNumeric(String numeric) {
-		String regex = "^(?=.*[A-Z])(?=.*[0-9])[A-Za-z\\d]{8,}$";
+	public static void checkSpecialCharacter(String SpecialCharacter) {
+		String regex = "^(?=.*[A-Z])(?=.*[0-9])(?=.*[@$!%*#?&])[A-Za-z\\d[@$!%*#?&]]{8,}$";
 		Pattern pattern = Pattern.compile(regex);
-		Matcher matcher = pattern.matcher(numeric);
+		Matcher matcher = pattern.matcher(SpecialCharacter);
 		if (matcher.matches()) {
-			System.out.println("\nYour password " + numeric + " is in correct format.");
+			System.out.println("\nYour password " + SpecialCharacter + " is in correct format.");
 		} else {
 			System.out.println("\nYour password is not in format");
 		}
