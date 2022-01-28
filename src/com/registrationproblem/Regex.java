@@ -8,13 +8,13 @@ public class Regex {
 	public static void main(String args[]) {
 		Scanner sc = new Scanner(System.in);
 		String password ;
-		System.out.println("\nEnter password ");
+		System.out.println("\nEnter password at least 1 upper case");
 		password = sc.nextLine();
-		checkPassword(password);
+		checkUpperCase(password);
 	}
 
-	public static void checkPassword(String password) {
-		String regex = "[0-9]{8,}";
+	public static void checkUpperCase(String password) {
+		String regex = "^(?=.*[A-Z])[A-Za-z]{8,}$";
 		Pattern pattern = Pattern.compile(regex);
 		Matcher matcher = pattern.matcher(password);
 		if (matcher.matches()) {
