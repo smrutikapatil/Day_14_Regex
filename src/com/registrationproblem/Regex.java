@@ -7,20 +7,20 @@ import java.util.regex.Pattern;
 public class Regex {
 	public static void main(String args[]) {
 		Scanner sc = new Scanner(System.in);
-		String password ;
-		System.out.println("\nEnter password at least 1 special character ");
-		password = sc.nextLine();
-		checkSpecialCharacter(password);
+		String emailId ;
+		System.out.println("\nEnter your email id: ");
+		emailId= sc.nextLine();
+		emailIdValidator(emailId);
 	}
 
-	public static void checkSpecialCharacter(String SpecialCharacter) {
-		String regex = "^(?=.*[A-Z])(?=.*[0-9])(?=.*[@$!%*#?&])[A-Za-z\\d[@$!%*#?&]]{8,}$";
+	public static void emailIdValidator(String EmailId) {
+		String regex = "^[a-z0-9]{3,}+([_+-.][a-z0-9]{3,}+)*@[a-z0-9]+.[a-z]{2,3}+(.[a-z]{2,3}){0,1}$";
 		Pattern pattern = Pattern.compile(regex);
-		Matcher matcher = pattern.matcher(SpecialCharacter);
+		Matcher matcher = pattern.matcher(EmailId);
 		if (matcher.matches()) {
-			System.out.println("\nYour password " + SpecialCharacter + " is in correct format.");
+			System.out.println("\nYour emailid " + EmailId + " is in correct format.");
 		} else {
-			System.out.println("\nYour password is not in format");
+			System.out.println("\nYour emailid is not in format");
 		}
 	}
 }
